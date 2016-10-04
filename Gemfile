@@ -14,6 +14,7 @@ gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rb-readline'
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'pry-byebug'

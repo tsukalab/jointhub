@@ -16,3 +16,6 @@ doc/
 .DS_Store
 .idea
 .secret
+
+# ignore upload things
+public/uploads/part
