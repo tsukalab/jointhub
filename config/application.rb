@@ -12,7 +12,7 @@ require "sprockets/railtie"
 
 Bundler.require(*Rails.groups)
 
-module NiyamaApp
+module JointHub
   class Application < Rails::Application
     config.action_view.field_error_proc = proc { |html_tag, instance| html_tag }
     config.time_zone = 'Asia/Tokyo'
