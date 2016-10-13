@@ -18,4 +18,4 @@ doc/
 .secret
 
 # ignore upload things
-public/uploads/part
+public/uploads/
