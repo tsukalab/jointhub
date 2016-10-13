@@ -15,3 +15,5 @@
 //= require materialize-sprockets
 //= require turbolinks
 //= require_tree .
+//= require jsc3d
+//= require jsc3d.touch

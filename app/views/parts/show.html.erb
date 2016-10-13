@@ -1,11 +1,22 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @part.name %>
-  <strong>STL Path:</strong>
-  <%= @part.stl.url %>
 </p>
 
-<%= link_to 'Edit', edit_part_path(@part) %> |
-<%= link_to 'Back', parts_path %>
+<canvas id="cv" width=640 height=480> It seems you are using an outdated browser that does not support canvas :-( </canvas>
+<script type="text/javascript">
+  var viewer = new JSC3D.Viewer(document.getElementById('cv'));
+  viewer.setParameter('SceneUrl', '<%= @part.stl.url %>');
+  viewer.setParameter('ModelColor', '#0074e8');
+  viewer.setParameter('BackgroundColor1', '#BDBDBD');
+  viewer.setParameter('BackgroundColor2', '#BDBDBD');
+  viewer.setParameter('RenderMode', 'flat');
+  viewer.init();
+  viewer.update();
+</script>
+
+<br>
+<%= link_to 'Back', parts_path, class: "btn"%>
+<%= link_to edit_part_path(@part), class: "btn" do %>
+  <i class="material-icons">mode_edit</i>
+<% end %>
