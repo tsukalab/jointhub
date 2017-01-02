@@ -9,6 +9,7 @@
 #  updated_at  :datetime         not null
 #
 
+
 class Joint < ApplicationRecord
   has_many :parts
 end

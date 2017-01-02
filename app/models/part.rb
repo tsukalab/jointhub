@@ -10,6 +10,7 @@
 #  joint_id   :integer
 #
 
+
 class Part < ApplicationRecord
   mount_uploader :stl, StlUploader
   belongs_to :joint
