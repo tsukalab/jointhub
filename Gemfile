@@ -12,6 +12,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'materialize-sass'
 gem 'carrierwave'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
 
 group :development, :test do
   gem 'byebug', platform: :mri
