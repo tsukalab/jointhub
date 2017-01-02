@@ -19,3 +19,6 @@ doc/
 
 # ignore upload things
 public/uploads/
+
+# env
+.env
