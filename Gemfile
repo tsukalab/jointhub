@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
+gem 'rails', '~> 5.0.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -11,10 +16,12 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'materialize-sass'
 gem 'carrierwave'
+gem 'rmagick'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
+gem 'nested_form_fields'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -28,6 +35,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rails-erd'
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
