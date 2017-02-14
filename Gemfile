@@ -21,7 +21,6 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
-gem 'nested_form_fields'
 
 group :development, :test do
   gem 'byebug', platform: :mri
