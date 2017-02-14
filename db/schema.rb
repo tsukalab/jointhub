@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131165208) do
+ActiveRecord::Schema.define(version: 20170212053935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20170131165208) do
     t.index ["part_id"], name: "index_joint_parts_on_part_id", using: :btree
   end
 
+  create_table "joint_tags", force: :cascade do |t|
+    t.integer  "joint_id",   null: false
+    t.integer  "tag_id",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["joint_id"], name: "index_joint_tags_on_joint_id", using: :btree
+    t.index ["tag_id"], name: "index_joint_tags_on_tag_id", using: :btree
+  end
+
   create_table "joints", force: :cascade do |t|
     t.string   "name",        null: false
     t.text     "description"
@@ -35,6 +44,12 @@ ActiveRecord::Schema.define(version: 20170131165208) do
   create_table "parts", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "stl",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,4 +68,6 @@ ActiveRecord::Schema.define(version: 20170131165208) do
 
   add_foreign_key "joint_parts", "joints"
   add_foreign_key "joint_parts", "parts"
+  add_foreign_key "joint_tags", "joints"
+  add_foreign_key "joint_tags", "tags"
 end
