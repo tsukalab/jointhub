@@ -4,7 +4,11 @@ class JointsController < ApplicationController
   # GET /joints
   # GET /joints.json
   def index
-    @joints = Joint.all
+    if params[:tag_id].nil?
+      @joints = Joint.search(params[:search])
+    else
+      @joints = Tag.find(params[:tag_id]).joints
+    end
   end
 
   # GET /joints/1
@@ -28,7 +32,7 @@ class JointsController < ApplicationController
 
     respond_to do |format|
       if @joint.save
-        format.html { redirect_to @joint, notice: 'Joint was successfully created.' }
+        format.html { redirect_to @joint, flash: { success: 'Joint was successfully created.' } }
         format.json { render :show, status: :created, location: @joint }
       else
         format.html { render :new }
@@ -56,7 +60,7 @@ class JointsController < ApplicationController
   def destroy
     @joint.destroy
     respond_to do |format|
-      format.html { redirect_to joints_url, notice: 'Joint was successfully destroyed.' }
+      format.html { redirect_to joints_url, flash: { notice: 'Joint was successfully destroyed.' } }
       format.json { head :no_content }
     end
   end
@@ -69,6 +73,8 @@ class JointsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def joint_params
-      params.require(:joint).permit(:name, :description)
+      params.require(:joint).permit(:name, :description, :image, :image_cache,
+                              joint_parts_attributes: [:id, :joint_id, :part_id],
+                              joint_tags_attributes: [:id, :joint_id, :tag_id])
     end
 end

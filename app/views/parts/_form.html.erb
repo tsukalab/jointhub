@@ -14,12 +14,20 @@
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
-    <%= f.label :stl %>
-    <%= f.file_field :stl %>
-    <%= f.hidden_field :stl_cache %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>FILE</span>
+      <%= f.file_field :stl %>
+      <%= f.hidden_field :stl_cache %>
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text" placeholder="Upload your stl file">
+    </div>
   </div>
+
+  <button class="btn waves-effect waves-light" type="submit" name="commit">Submit
+    <i class="material-icons right">send</i>
+  </button>
 <% end %>

@@ -10,10 +10,13 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <div class="container">
-      <%= yield %>
+      <% flash.each do |key, value| %>
+        <script>Materialize.toast('<%= value %>', 4000, '<%= key %>')</script>
+      <% end %>
+      <div class="row card-panel">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

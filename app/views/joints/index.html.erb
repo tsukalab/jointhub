@@ -1,29 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="input-field col s6 offset-s6">
+<%= form_tag joints_path, method: 'get' do %>
+  <i class="material-icons prefix">search</i>
+  <%= text_field_tag :search, params[:search], class: 'validate', id: 'icon_prefix' %>
+<% end %>
+</div>
+<% @joints.each do |joint| %>
+  <div class="col s4">
+    <div class="card hoverable">
+      <div class="card-image">
+        <%= image_tag joint.image %>
+        <div class="card-image-btn fixed-action-btn horizontal">
+          <a class="btn-floating btn-large"><i class="large material-icons">menu</i></a>
+          <ul>
+            <li>
+              <%= link_to joint_path(joint), class: "btn-floating blue" do %>
+                <i class="material-icons">zoom_in</i></a>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to edit_joint_path(joint), class: "btn-floating yellow darken-1" do %>
+                <i class="material-icons">mode_edit</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to joint_path(joint), method: :delete, class: "btn-floating red", data: { confirm: 'Are you sure?' } do %>
+                <i class="material-icons">delete</i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-content">
+        <span class="card-title grey-text text-darken-4"><%= joint.name %></span>
+      </div>
+    </div>
+  </div>
+<% end %>
 
-<h1>Joints</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @joints.each do |joint| %>
-      <tr>
-        <td><%= joint.name %></td>
-        <td><%= joint.description %></td>
-        <td><%= link_to 'Show', joint %></td>
-        <td><%= link_to 'Edit', edit_joint_path(joint) %></td>
-        <td><%= link_to 'Destroy', joint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Joint', new_joint_path %>
+<div class="top-new-joint-btn">
+  <%= link_to new_joint_path, class: "btn-floating btn-large waves-effect waves-light" do %>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>
