@@ -23,6 +23,22 @@
     <%= f.text_area :description, class: "materialize-textarea"%>
   </div>
 
+  <label>Tag</label>
+  <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |b| %>
+    <p>
+      <%= b.check_box %>
+      <%= b.label %>
+    </p>
+  <% end %>
+
+  <label>使用パーツ</label>
+  <%= f.collection_check_boxes(:part_ids, Part.all, :id, :name) do |b| %>
+    <p>
+      <%= b.check_box %>
+      <%= b.label %>
+    </p>
+  <% end %>
+
   <div class="file-field input-field">
     <div class="btn">
       <span>FILE</span>

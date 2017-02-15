@@ -73,8 +73,6 @@ class JointsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def joint_params
-      params.require(:joint).permit(:name, :description, :image, :image_cache,
-                              joint_parts_attributes: [:id, :joint_id, :part_id],
-                              joint_tags_attributes: [:id, :joint_id, :tag_id])
+      params.require(:joint).permit(:name, :description, :image, :image_cache, part_ids: [], tag_ids: [])
     end
 end

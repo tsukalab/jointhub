@@ -16,8 +16,6 @@ class Joint < ApplicationRecord
   has_many :joint_tags, dependent: :destroy
   has_many :parts, through: :joint_parts
   has_many :tags, through: :joint_tags
-  accepts_nested_attributes_for :joint_parts, allow_destroy: true
-  accepts_nested_attributes_for :joint_tags, allow_destroy: true
 
   def self.search(search)
     if search
