@@ -10,6 +10,9 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  uid                    :string           not null
+#  provider               :string           not null
+#  username               :string           not null
 #
 # Indexes
 #
@@ -26,19 +29,14 @@ class User < ApplicationRecord
 
     unless user
       user = User.create(
+        username: auth.info.name,
         uid:      auth.uid,
         provider: auth.provider,
-        email:    User.dummy_email(auth),
+        email:    auth.info.email,
         password: Devise.friendly_token[0, 20]
       )
     end
 
     user
-  end
-
-  private
-
-  def self.dummy_email(auth)
-    "#{auth.uid}-#{auth.provider}@example.com"
   end
 end

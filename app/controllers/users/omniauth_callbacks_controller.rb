@@ -3,10 +3,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_from :facebook
   end
 
-  def github
-    callback_from :github
-  end
-
   private
 
   def callback_from(provider)
