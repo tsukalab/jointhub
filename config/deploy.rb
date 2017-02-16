@@ -21,10 +21,10 @@ set :deploy_to, "/home/deploy/jointhub"
 set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", "config/secrets.yml"
+# append :linked_files, "config/database.yml", "config/secrets.yml"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -42,15 +42,6 @@ namespace :deploy do
     end
   end
 
-  desc 'upload important files'
-  task :upload do
-    on roles(:app) do |host|
-      execute :mkdir, '-p', "#{shared_path}/config"
-      upload!('config/database.yml',"#{shared_path}/config/database.yml")
-      upload!('config/secrets.yml',"#{shared_path}/config/secrets.yml")
-    end
-  end
-
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       within release_path do
@@ -59,6 +50,5 @@ namespace :deploy do
     end
   end
 
-  before :started, 'deploy:upload'
   after :finishing, 'deploy:cleanup'
 end
