@@ -1,5 +1,5 @@
 # README
-[![CircleCI](https://circleci.com/gh/tsukalab/jointhub/tree/master.svg?style=svg)](https://circleci.com/gh/tsukalab/jointhub/tree/master)
+[![CircleCI](https://circleci.com/gh/tsukalab/jointhub.svg?style=svg&circle-token=fa1c20929f104bba0c307da6d5296ee3203a2293)](https://circleci.com/gh/tsukalab/jointhub)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
