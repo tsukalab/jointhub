@@ -26,6 +26,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rb-readline'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'better_errors'
