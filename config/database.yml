@@ -13,7 +13,3 @@ development:
 test:
   <<: *default
   database: jointhub_test
-
-production:
-  <<: *default
-  database: jointhub_production
