@@ -31,6 +31,8 @@
 </div>
 
 <%= link_to '←', joints_path, class: "btn"%>
-<%= link_to edit_joint_path(@joint), class: "btn" do %>
-  <i class="material-icons">mode_edit</i>
+<% if user_signed_in? %>
+  <%= link_to edit_joint_path(@joint), class: "btn" do %>
+    <i class="material-icons">mode_edit</i>
+  <% end %>
 <% end %>

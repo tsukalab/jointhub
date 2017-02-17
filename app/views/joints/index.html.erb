@@ -8,7 +8,8 @@
   <div class="col s4">
     <div class="card hoverable">
       <div class="card-image">
-        <%= image_tag joint.image %>
+        <%= image_tag joint.image, size: "364x168" %>
+        <% if user_signed_in? %>
         <div class="card-image-btn fixed-action-btn horizontal">
           <a class="btn-floating btn-large"><i class="large material-icons">menu</i></a>
           <ul>
@@ -29,6 +30,13 @@
             </li>
           </ul>
         </div>
+        <% else %>
+        <div class="card-image-btn fixed-action-btn horizontal">
+          <%= link_to joint_path(joint), class: "btn-floating btn-large" do %>
+            <i class="material-icons">zoom_in</i></a>
+          <% end %>
+        </div>
+        <% end %>
       </div>
       <div class="card-content">
         <span class="card-title grey-text text-darken-4"><%= joint.name %></span>
@@ -37,8 +45,10 @@
   </div>
 <% end %>
 
+<% if user_signed_in? %>
 <div class="top-new-joint-btn">
   <%= link_to new_joint_path, class: "btn-floating btn-large waves-effect waves-light" do %>
     <i class="material-icons">add</i>
   <% end %>
 </div>
+<% end %>

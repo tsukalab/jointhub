@@ -19,6 +19,8 @@
 
 <br>
 <%= link_to 'Back', parts_path, class: "btn"%>
+<% if user_signed_in? %>
 <%= link_to edit_part_path(@part), class: "btn" do %>
   <i class="material-icons">mode_edit</i>
+<% end %>
 <% end %>
