@@ -19,6 +19,7 @@ doc/
 
 # ignore upload things
 public/uploads/
+public/system/
 
 # env
 .env
