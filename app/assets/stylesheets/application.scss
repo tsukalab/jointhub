@@ -2,8 +2,7 @@
 $primary-color: color("green", "darken-2") !default;
 $secondary-color: color("orange", "darken-2") !default;
 $error-color: color("red", "base") !default;
-$success-color: color("green", "base") !default;
-$notice-color: color("yellow", "base") !default;
+$success-color: color("blue", "base") !default;
 @import 'materialize';
 
 .top-new-joint-btn {
@@ -32,13 +31,6 @@ $notice-color: color("yellow", "base") !default;
   bottom: 10%;
   left:7%;
   background-color: $success-color;
-}
-
-.notice {
-  top: auto !important;
-  bottom: 10%;
-  left:7%;
-  background-color: $notice-color;
 }
 
 nav ul.left.hide-on-med-and-down{

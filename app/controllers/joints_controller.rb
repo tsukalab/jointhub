@@ -47,7 +47,7 @@ class JointsController < ApplicationController
   def update
     respond_to do |format|
       if @joint.update(joint_params)
-        format.html { redirect_to @joint, notice: 'Joint was successfully updated.' }
+        format.html { redirect_to @joint, success: 'Joint was successfully updated.' }
         format.json { render :show, status: :ok, location: @joint }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class JointsController < ApplicationController
   def destroy
     @joint.destroy
     respond_to do |format|
-      format.html { redirect_to joints_url, flash: { notice: 'Joint was successfully destroyed.' } }
+      format.html { redirect_to joints_url, flash: { success: 'Joint was successfully destroyed.' } }
       format.json { head :no_content }
     end
   end
