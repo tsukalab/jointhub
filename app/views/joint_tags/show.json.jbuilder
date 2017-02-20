@@ -1,1 +1,0 @@
-json.partial! "joint_tags/joint_tag", joint_tag: @joint_tag
