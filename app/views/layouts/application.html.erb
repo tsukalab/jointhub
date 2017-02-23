@@ -15,6 +15,7 @@
         <script>Materialize.toast('<%= value %>', 4000, '<%= key %>')</script>
       <% end %>
       <div class="row card-panel">
+          <%= render 'layouts/search-bar' %>
         <%= yield %>
       </div>
     </div>
