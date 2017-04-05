@@ -4,6 +4,10 @@ machine:
   ruby:
     version: 2.3.3
 
+test:
+  override:
+    - echo 'skip test'
+
 deployment:
   production:
     branch: master
