@@ -4,7 +4,7 @@
 新山が製作してきたジョイント群を管理できるwebアプリケーション
 
 * Ruby version
-    * 2.3.3
+    * 2.4.0
 
 * System dependencies
     * Imagemagick
