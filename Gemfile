@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.0.1'
+gem 'rails', '~> 5.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -17,7 +17,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'materialize-sass'
 gem 'carrierwave'
 gem 'rmagick'
-gem 'devise'
+gem 'devise', git: 'https://github.com/gogovan/devise.git', branch: 'rails-5.1'
+gem 'erubis'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
