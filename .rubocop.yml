@@ -2,3 +2,15 @@ Rails:
   Enabled: true
 Style/Documentation:
   Enabled: false
+FrozenStringLiteralComment:
+  Enabled: false
+OrderedGems:
+  Enabled: false
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - config/unicorn.rb
+    - config/unicorn_staging.rb
+    - tmp/**/*
+    - vendor/**/*
+  TargetRubyVersion: 2.4
