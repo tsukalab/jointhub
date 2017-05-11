@@ -1,9 +1,9 @@
 default: &default
   adapter: postgresql
-  encoding: unicode
-  pool: 5
-  username: <%= ENV['JOINTHUB_DATABASE_USER'] %>
-  password: <%= ENV['JOINTHUB_DATABASE_PASSWORD'] %>
+  encoding: utf-8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch('JOINTHUB_DATABASE_USER') { 'jointhub' }%>
+  password: <%= ENV.fetch('JOINTHUB_DATABASE_PASSWORD') { 'password' }%>
   host: <%= ENV.fetch('DATABASE_HOST') { 'localhost' } %>
 
 development:
@@ -13,3 +13,12 @@ development:
 test:
   <<: *default
   database: jointhub_test
+
+production:
+  database: jointhub_production
+  adapter: postgresql
+  encoding: utf-8
+  pool: 5
+  username: Rails.application.secrets[:username]
+  password: Rails.application.secrets[:password]
+  host: Rails.application.secrets[:host]

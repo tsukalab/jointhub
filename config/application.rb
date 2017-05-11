@@ -1,25 +1,18 @@
 require_relative 'boot'
 
-require "rails"
-require "active_model/railtie"
-require "active_job/railtie"
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_view/railtie"
-require "action_cable/engine"
-require "sprockets/railtie"
+require 'rails/all'
 
 Bundler.require(*Rails.groups)
 
 module Jointhub
   class Application < Rails::Application
+    config.load_defaults 5.1
     config.action_view.field_error_proc = proc { |html_tag, instance| html_tag }
     config.i18n.default_locale = :ja
     config.time_zone = 'Asia/Tokyo'
-
     config.generators do |g|
       g.test_framework :rspec, view_specs: false, helper_specs: false
     end
+    config.read_encrypted_secrets = true
   end
 end
