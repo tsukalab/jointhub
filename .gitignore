@@ -23,3 +23,5 @@ public/system/
 
 # env
 .env
+# Ignore encrypted secrets key file.
+config/secrets.yml.key

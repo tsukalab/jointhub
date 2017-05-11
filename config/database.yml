@@ -13,3 +13,12 @@ development:
 test:
   <<: *default
   database: jointhub_test
+
+production:
+  database: jointhub_production
+  adapter: postgresql
+  encoding: utf-8
+  pool: 5
+  username: Rails.application.secrets[:username]
+  password: Rails.application.secrets[:password]
+  host: Rails.application.secrets[:host]

@@ -45,7 +45,6 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
   gem 'capistrano-rbenv'
-  gem 'dotenv-rails'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
