@@ -1,10 +1,10 @@
 class PartsController < ApplicationController
-  before_action :set_part, only: [:show, :edit, :update, :destroy]
+  before_action :set_part, only: %i[show edit update destroy]
 
   # GET /parts
   # GET /parts.json
   def index
-    @parts = Part.all
+    @parts = Part.all.page(params[:page])
   end
 
   # GET /parts/1
@@ -62,13 +62,12 @@ class PartsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_part
-      @part = Part.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def part_params
-      params.require(:part).permit(:name, :stl, :stl_cache)
-    end
+  def set_part
+    @part = Part.find(params[:id])
+  end
+
+  def part_params
+    params.require(:part).permit(:name, :stl, :stl_cache)
+  end
 end

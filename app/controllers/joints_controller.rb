@@ -6,9 +6,9 @@ class JointsController < ApplicationController
   # GET /joints.json
   def index
     if params[:tag_id].nil?
-      @joints = Joint.search(params[:search])
+      @joints = Joint.search(params[:search]).page(params[:page])
     else
-      @joints = Tag.find(params[:tag_id]).joints
+      @joints = Tag.find(params[:tag_id]).joints.page(params[:page])
     end
   end
 

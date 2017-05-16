@@ -40,8 +40,4 @@
   </div>
 <% end %>
 
-<% if user_signed_in? %>
-<%= link_to new_part_path, class: "btn-floating btn-large waves-effect waves-light" do %>
-  <i class="material-icons">add</i>
-<% end %>
-<% end %>
+<%= paginate @parts %>
