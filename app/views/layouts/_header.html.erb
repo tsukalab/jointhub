@@ -1,14 +1,15 @@
 <nav>
-  <div class="nav-wrapper">
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
+  <div class='nav-wrapper'>
+    <ul id='nav-mobile' class='left hide-on-med-and-down'>
       <li><%= link_to 'Joint', joints_path %></li>
       <li><%= link_to 'Part', parts_path %></li>
       <li><%= link_to 'Tag', tags_path %></li>
     </ul>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <ul id='nav-mobile' class='right hide-on-med-and-down'>
+      <li><%= render 'layouts/search-bar' %></li>
       <li><%= link_to 'GitHub', 'https://github.com/tsukalab/jointhub'%>
     <% if user_signed_in? %>
-      <li><%= link_to "Logout", destroy_user_session_path, method: "delete" %></li>
+      <li><%= link_to 'Logout', destroy_user_session_path, method: 'delete' %></li>
     <% else %>
       <li><%= link_to 'Login with Facebook', user_facebook_omniauth_authorize_path %></li>
     <% end %>
