@@ -5,12 +5,6 @@ $error-color: color("red", "base") !default;
 $success-color: color("blue", "base") !default;
 @import 'materialize';
 
-.top-new-joint-btn {
-    position: fixed;
-    bottom: 2%;
-    right: 19%;
-}
-
 .card-image-btn {
     position: absolute;
     right: 24px;
