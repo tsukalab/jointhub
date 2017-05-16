@@ -24,6 +24,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'webpacker', github: 'rails/webpacker'
 gem 'react-rails'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platform: :mri
