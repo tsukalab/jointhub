@@ -3,7 +3,8 @@
   <%= @part.name %>
 </p>
 
-<%= react_component('MyStlView', { url: "http://localhost:3000/#{@part.stl.url}" }) %>
+<%= react_component('MyStlView',
+  { url: "http://localhost:3000/#{@part.stl.url}", width: 400, height: 400, rotate: true, orbitControls: true }) %>
 
 <p><%= link_to 'Download link', @part.stl.url %></p>
 

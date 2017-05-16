@@ -2,7 +2,8 @@
   <div class="col s4">
     <div class="card hoverable">
       <div class="card-image">
-        <%= react_component('MyStlView', { url: "http://localhost:3000/#{part.stl.url}" }) %>
+        <%= react_component('MyStlView',
+          { url: "http://localhost:3000/#{part.stl.url}", width: 300, height: 300, rotate: false, orbitControls: false }) %>
         <% if user_signed_in? %>
         <div class="card-image-btn fixed-action-btn horizontal">
           <a class="btn-floating btn-large"><i class="large material-icons">menu</i></a>
