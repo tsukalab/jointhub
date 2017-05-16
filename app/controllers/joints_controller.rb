@@ -1,6 +1,6 @@
 class JointsController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
-  before_action :set_joint, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: %i[edit update destroy]
+  before_action :set_joint, only: %i[show edit update destroy]
 
   # GET /joints
   # GET /joints.json
@@ -67,13 +67,14 @@ class JointsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_joint
-      @joint = Joint.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def joint_params
-      params.require(:joint).permit(:name, :description, :image, :image_cache, part_ids: [], tag_ids: [])
-    end
+  def set_joint
+    @joint = Joint.find(params[:id])
+  end
+
+  def joint_params
+    params.require(:joint).permit(
+      :name, :description, :image, :image_cache, part_ids: [], tag_ids: []
+    )
+  end
 end
