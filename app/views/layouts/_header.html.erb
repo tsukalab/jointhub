@@ -1,18 +1,36 @@
-<nav>
+<nav class="nav-extended">
   <div class='nav-wrapper'>
+    <%= link_to 'JointSystem', root_path, class: 'brand-logo center' %>
     <ul id='nav-mobile' class='left hide-on-med-and-down'>
       <li><%= link_to 'Joint', joints_path %></li>
       <li><%= link_to 'Part', parts_path %></li>
       <li><%= link_to 'Tag', tags_path %></li>
     </ul>
     <ul id='nav-mobile' class='right hide-on-med-and-down'>
-      <li><%= render 'layouts/search-bar' %></li>
-      <li><%= link_to 'GitHub', 'https://github.com/tsukalab/jointhub'%>
-    <% if user_signed_in? %>
-      <li><%= link_to 'Logout', destroy_user_session_path, method: 'delete' %></li>
-    <% else %>
-      <li><%= link_to 'Login with Facebook', user_facebook_omniauth_authorize_path %></li>
-    <% end %>
+      <li>
+        <div class='input-field'>
+          <%= form_with(url: joints_path, method: 'get') do |f| %>
+            <%= f.text_field :search, class: 'validate', id: 'icon_prefix', type: 'search', required: '' %>
+            <%= f.label :search, class: 'label-icon' do %>
+              <i class="material-icons">search</i>
+            <% end %>
+            <i class="material-icons">close</i>
+          <% end %>
+        </div>
+      </li>
+      <li><%= link_to 'GitHub', github_url %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to 'Logout', destroy_user_session_path, method: 'delete' %></li>
+      <% else %>
+        <li><%= link_to 'Login with Facebook', user_facebook_omniauth_authorize_path %></li>
+      <% end %>
     </ul>
   </div>
+  <% if user_signed_in? %>
+    <div class="nav-content add-content-btn">
+      <a class="btn-floating btn-large halfway-fab waves-effect waves-light">
+        <i class="material-icons">add</i>
+      </a>
+    </div>
+  <% end %>
 </nav>
