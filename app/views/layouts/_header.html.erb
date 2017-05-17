@@ -8,15 +8,15 @@
     </ul>
     <ul id='nav-mobile' class='right hide-on-med-and-down'>
       <li>
-        <div class='input-field'>
           <%= form_with(url: joints_path, method: 'get') do |f| %>
-            <%= f.text_field :search, class: 'validate', id: 'icon_prefix', type: 'search', required: '' %>
-            <%= f.label :search, class: 'label-icon' do %>
-              <i class="material-icons">search</i>
-            <% end %>
-            <i class="material-icons">close</i>
+            <div class='input-field'>
+              <%= f.text_field :search, class: 'validate', id: 'icon_prefix', type: 'search', required: '' %>
+              <%= f.label :search, class: 'label-icon' do %>
+                <i class="material-icons">search</i>
+              <% end %>
+              <i class="material-icons">close</i>
+            </div>
           <% end %>
-        </div>
       </li>
       <li><%= link_to 'GitHub', github_url %></li>
       <% if user_signed_in? %>

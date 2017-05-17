@@ -5,6 +5,14 @@ $error-color: color("red", "base") !default;
 $success-color: color("blue", "base") !default;
 @import 'materialize';
 
+.card .card-content {
+  height: 150px;
+}
+
+u.input-filed input {
+  margin-top: 20px;
+}
+
 .card-image-btn {
     position: absolute;
     right: 24px;
@@ -25,14 +33,6 @@ $success-color: color("blue", "base") !default;
   bottom: 10%;
   left:7%;
   background-color: $success-color;
-}
-
-nav ul.left.hide-on-med-and-down{
-  margin-left: 20px;
-}
-
-nav ul.right.hide-on-med-and-down{
-  margin-right: 20px;
 }
 
 .add-content-btn {
