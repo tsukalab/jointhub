@@ -10,6 +10,13 @@ set :repo_url, 'git@github.com:tsukalab/jointhub.git'
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/deploy/jointhub'
 
+
+set :nodebrew_type, :user # or :system, depends on your nodebrew setup
+set :nodebrew_node, 'v7.10.0'
+
+set :nodebrew_map_bins, %w[npm node] # default values
+set :nodebrew_roles, :all # default value
+
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
@@ -26,7 +33,7 @@ set :pty, true
 append :linked_files, 'config/secrets.yml.key'
 
 # Default value for linked_dirs is []
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'node_modules'
 
 # Default value for default_env is {}
 # set :default_env, { path: '/opt/ruby/bin:$PATH' }

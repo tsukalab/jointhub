@@ -48,6 +48,8 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
   gem 'capistrano-rbenv'
+  gem 'capistrano-nodebrew'
+  gem 'capistrano-yarn'
   gem 'foreman'
 end
 
