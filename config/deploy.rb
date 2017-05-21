@@ -14,7 +14,7 @@ set :deploy_to, '/home/deploy/jointhub'
 set :nodebrew_type, :user # or :system, depends on your nodebrew setup
 set :nodebrew_node, 'v7.10.0'
 
-set :nodebrew_map_bins, %w[npm node] # default values
+set :nodebrew_map_bins, %w[npm node bin/yarn] # default values
 set :nodebrew_roles, :all # default value
 
 # Default value for :format is :airbrussh.
