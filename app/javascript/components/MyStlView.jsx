@@ -6,7 +6,7 @@ export default function MyStlView(props) {
     url={props.url}
     width={props.width}
     height={props.height}
-    modelColor='#B92C2C'
+    modelColor='#00897B'
     backgroundColor='#EAEAEA'
     rotate={props.rotate}
     orbitControls={props.orbitControls}

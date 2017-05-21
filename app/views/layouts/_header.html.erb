@@ -28,9 +28,21 @@
   </div>
   <% if user_signed_in? %>
     <div class="nav-content add-content-btn">
-      <a class="btn-floating btn-large halfway-fab waves-effect waves-light">
-        <i class="material-icons">add</i>
-      </a>
+      <% if current_page?(joints_path) or current_page?(root_path) %>
+        <%= link_to new_joint_path, class: "btn-floating btn-large waves-effect waves-light halfway-fab" do %>
+          <i class="material-icons">add</i>
+        <% end %>
+      <% end %>
+      <% if current_page?(parts_path) %>
+        <%= link_to new_part_path, class: "btn-floating btn-large waves-effect waves-light halfway-fab" do %>
+          <i class="material-icons">add</i>
+        <% end %>
+      <% end %>
+      <% if current_page?(tags_path) %>
+        <%= link_to new_tag_path, class: "btn-floating btn-large waves-effect waves-light halfway-fab" do %>
+          <i class="material-icons">add</i>
+        <% end %>
+      <% end %>
     </div>
   <% end %>
 </nav>
