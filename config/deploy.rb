@@ -4,8 +4,9 @@ lock '3.8.1'
 set :application, 'jointhub'
 set :repo_url, 'git@github.com:tsukalab/jointhub.git'
 
+set nodebrew_custom_path, '/usr/local/lib/nodebrew/current/bin:$PATH'
 set :nodebrew_type, :user # or :system, depends on your nodebrew setup
-set :nodebrew_node, 'v7.10.0'
+set :nodebrew_node, '7.10.0'
 
 set :nodebrew_map_bins, %w[npm node bin/yarn] # default values
 set :nodebrew_roles, :all # default value
