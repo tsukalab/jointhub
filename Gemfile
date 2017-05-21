@@ -22,6 +22,9 @@ gem 'erubis'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
+gem 'webpacker', github: 'rails/webpacker'
+gem 'react-rails'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -45,6 +48,9 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
   gem 'capistrano-rbenv'
+  gem 'capistrano-nodebrew'
+  gem 'capistrano-yarn'
+  gem 'foreman'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

@@ -2,17 +2,8 @@
   <div class="col s4">
     <div class="card hoverable">
       <div class="card-image">
-        <canvas id='<%= part.id %>' width=364 height=168> It seems you are using an outdated browser that does not support canvas :-( </canvas>
-        <script type="text/javascript">
-          var viewer = new JSC3D.Viewer(document.getElementById('<%= part.id %>'));
-          viewer.setParameter('SceneUrl', '<%= part.stl.url %>');
-          viewer.setParameter('ModelColor', '#42a5f5');
-          viewer.setParameter('BackgroundColor1', '#FFFFFF');
-          viewer.setParameter('BackgroundColor2', '#FFFFFF');
-          viewer.setParameter('RenderMode', 'flat');
-          viewer.init();
-          viewer.update();
-        </script>
+        <%= react_component('MyStlView',
+          { url: "http://localhost:3000/#{part.stl.url}", width: 300, height: 300, rotate: false, orbitControls: false }) %>
         <% if user_signed_in? %>
         <div class="card-image-btn fixed-action-btn horizontal">
           <a class="btn-floating btn-large"><i class="large material-icons">menu</i></a>
@@ -49,8 +40,4 @@
   </div>
 <% end %>
 
-<% if user_signed_in? %>
-<%= link_to new_part_path, class: "btn-floating btn-large waves-effect waves-light" do %>
-  <i class="material-icons">add</i>
-<% end %>
-<% end %>
+<%= paginate @parts %>
