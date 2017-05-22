@@ -4,12 +4,14 @@ lock '3.8.1'
 set :application, 'jointhub'
 set :repo_url, 'git@github.com:tsukalab/jointhub.git'
 
-set nodebrew_custom_path, '/usr/local/lib/nodebrew/current/bin:$PATH'
-set :nodebrew_type, :user # or :system, depends on your nodebrew setup
-set :nodebrew_node, '7.10.0'
-
-set :nodebrew_map_bins, %w[npm node bin/yarn] # default values
-set :nodebrew_roles, :all # default value
+set :rbenv_type, :user
+set :rbenv_ruby, '2.4.1'
+set :nodenv_type, :user # or :system, depends on your nodenv setup
+set :nodenv_node, '7.10.0'
+set :nodenv_prefix, "NODENV_ROOT=#{fetch(:nodenv_path)} NODENV_VERSION=#{fetch(:nodenv_node)} #{fetch(:nodenv_path)}/bin/nodenv exec"
+set :nodenv_map_bins, %w[node npm]
+set :nodenv_roles, :all # default value
+append :nodenv_map_bins, 'bin/yarn'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
