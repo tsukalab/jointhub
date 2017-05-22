@@ -4,6 +4,10 @@ lock '3.8.1'
 set :application, 'jointhub'
 set :repo_url, 'git@github.com:tsukalab/jointhub.git'
 
+set :default_env, {
+  path: "/home/deploy/.nodenv/shims/node:$PATH"
+}
+
 set :rbenv_type, :user
 set :rbenv_ruby, '2.4.1'
 set :nodenv_type, :user # or :system, depends on your nodenv setup
