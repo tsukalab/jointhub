@@ -5,10 +5,8 @@ $error-color: color("red", "base") !default;
 $success-color: color("blue", "base") !default;
 @import 'materialize';
 
-.top-new-joint-btn {
-    position: fixed;
-    bottom: 2%;
-    right: 19%;
+.card .card-content {
+  height: 150px;
 }
 
 .card-image-btn {
@@ -33,10 +31,6 @@ $success-color: color("blue", "base") !default;
   background-color: $success-color;
 }
 
-nav ul.left.hide-on-med-and-down{
-  margin-left: 20px;
-}
-
-nav ul.right.hide-on-med-and-down{
-  margin-right: 20px;
-}
+.add-content-btn {
+  margin-top: 40px;
+} 

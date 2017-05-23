@@ -4,20 +4,15 @@
 新山が製作してきたジョイント群を管理できるwebアプリケーション
 
 * Ruby version
-    * 2.4.0
+    * 2.4.1
 
 * System dependencies
     * Imagemagick
     * Graphviz
+    * Yarn
 
 * Setup
     * `git clone https://github.com/tsukalab/jointhub.git && cd jointhub`
-
-    * `$ mv .env.sample .env`
-        ```.env
-        FACEBOOK_CLIENT_ID="0000000000000000"
-        FACEBOOK_CLIENT_SECRET="111111111111111111111111111111111"
-        ```
 
     * Install docker
         * [Docker for Mac](https://download.docker.com/mac/stable/Docker.dmg)

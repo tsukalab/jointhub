@@ -38,11 +38,4 @@
     </div>
   </div>
 <% end %>
-
-<% if user_signed_in? %>
-<div class="top-new-joint-btn">
-  <%= link_to new_joint_path, class: "btn-floating btn-large waves-effect waves-light" do %>
-    <i class="material-icons">add</i>
-  <% end %>
-</div>
-<% end %>
+<%= paginate @joints %>
