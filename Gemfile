@@ -48,7 +48,6 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
   gem 'capistrano-rbenv'
-  gem 'capistrano-nodenv', '~> 1.0'
   gem 'foreman'
 end
 

@@ -5,7 +5,6 @@ require 'capistrano/scm/git'
 install_plugin Capistrano::SCM::Git
 
 require 'capistrano/rbenv'
-require 'capistrano/nodenv'
 require 'capistrano/rails'
 require 'capistrano/passenger'
 
