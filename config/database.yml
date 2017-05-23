@@ -10,6 +10,10 @@ development:
   <<: *default
   database: jointhub_development
 
+staging:
+  <<: *default
+  database: jointhub_staging
+
 test:
   <<: *default
   database: jointhub_test
