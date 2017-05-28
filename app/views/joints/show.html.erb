@@ -1,32 +1,23 @@
-<div class="card">
+<div class="card horizontal">
   <div class="card-image">
     <%= image_tag @joint.image %>
   </div>
-  <div class="card-stacked">
-    <div class="card-content">
-      <span class="card-title"><%= @joint.name %></span>
-      <p><%= @joint.description %></p>
-      <br>
-      <p>
-        <% @joint.tags.each do |tag| %>
-          <div class="chip">
-            <%= link_to tag.name, tag_path(tag)%>
-          </div>
-        <% end %>
-      </p>
-    </div>
-  </div>
-</div>
-<div class="card">
   <div class="card-content">
-    <span class="card-title">使用パーツ</span>
-    <p>
-      <% @joint.parts.each do |part| %>
-        <div class="chip">
-          <%= link_to part.name, part_path(part) %>
-        </div>
-      <% end %>
-    </p>
+    <span class="card-title"><%= @joint.name %></span>
+    <p><%= @joint.description %></p>
+    <br>
+    Tag: <% @joint.tags.each do |tag| %>
+      <div class="chip">
+        <%= link_to tag.name, tag_path(tag)%>
+      </div>
+    <% end %>
+    <br>
+    Part: <% @joint.parts.each do |part| %>
+      <div class="chip">
+        <%= link_to part.name, part_path(part) %>
+      </div>
+    <% end %>
+    <%= link_to 'Download ZIP', download_zip_path(@joint) %>
   </div>
 </div>
 

@@ -1,6 +1,7 @@
 class JointsController < ApplicationController
+  include Zipline
   before_action :authenticate_user!, only: %i[edit update destroy]
-  before_action :set_joint, only: %i[show edit update destroy]
+  before_action :set_joint, only: %i[show edit update destroy download_parts_file]
 
   # GET /joints
   # GET /joints.json
@@ -64,6 +65,11 @@ class JointsController < ApplicationController
       format.html { redirect_to joints_url, flash: { success: 'Joint was successfully destroyed.' } }
       format.json { head :no_content }
     end
+  end
+
+  def download_parts_file
+    files =  @joint.parts.map{ |part| [part.stl, "#{part.stl_identifier}"] }
+    zipline(files, "#{@joint.name}.zip")
   end
 
   private

@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   direct :github do
     'https://github.com/tsukalab/jointhub'
   end
+  get '/download/:id', to: 'joints#download_parts_file', as: 'download_zip'
 end
