@@ -34,6 +34,11 @@
       </div>
       <div class="card-content card-content-index">
         <span class="card-title grey-text text-darken-4"><%= joint.name %></span>
+        <% joint.tags.each do |tag| %>
+          <div class="chip">
+            <%= link_to tag.name, tag_path(tag)%>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
