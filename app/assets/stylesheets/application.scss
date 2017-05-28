@@ -3,6 +3,7 @@ $primary-color: color("green", "darken-2") !default;
 $secondary-color: color("orange", "darken-2") !default;
 $error-color: color("red", "base") !default;
 $success-color: color("blue", "base") !default;
+$fb-login-color: color("indigo", "darken-3") !default;
 @import 'materialize';
 
 .card-content-index {
@@ -17,17 +18,24 @@ $success-color: color("blue", "base") !default;
     transform: translateY(50%);
 }
 
-.alert {
+%flash {
   top: auto !important;
   bottom: 10%;
   left:7%;
-  background-color: $error-color;
+}
+
+.alert {
+  @extend %flash;
+  background-color: $fb-login-color;
+}
+
+.notice {
+  @extend %flash;
+  background-color: $fb-login-color;
 }
 
 .success {
-  top: auto !important;
-  bottom: 10%;
-  left:7%;
+  @extend %flash;
   background-color: $success-color;
 }
 
