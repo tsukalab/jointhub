@@ -2,7 +2,7 @@
   <div class="col s4">
     <div class="card hoverable">
       <div class="card-image">
-        <%= image_tag joint.image, size: "364x168" %>
+        <%= image_tag joint.image %>
         <% if user_signed_in? %>
         <div class="card-image-btn fixed-action-btn horizontal">
           <a class="btn-floating btn-large"><i class="large material-icons">menu</i></a>
@@ -32,7 +32,7 @@
         </div>
         <% end %>
       </div>
-      <div class="card-content">
+      <div class="card-content card-content-index">
         <span class="card-title grey-text text-darken-4"><%= joint.name %></span>
       </div>
     </div>
