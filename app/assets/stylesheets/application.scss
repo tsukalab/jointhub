@@ -6,8 +6,15 @@ $success-color: color("blue", "base") !default;
 $fb-login-color: color("indigo", "darken-3") !default;
 @import 'materialize';
 
+
+.index-image {
+  width: 364px;
+  height: 168px;
+}
+
 .card-content-index {
-  height: 150px;
+  height: 20%;
+  position: relative;
 }
 
 .card-image-btn {
@@ -41,4 +48,4 @@ $fb-login-color: color("indigo", "darken-3") !default;
 
 .add-content-btn {
   margin-top: 40px;
-} 
+}
