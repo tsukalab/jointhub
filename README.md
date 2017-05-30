@@ -3,32 +3,54 @@
 
 新山が製作してきたジョイント群を管理できるwebアプリケーション
 
+## Requirement
 * Ruby version
-    * 2.4.1
+  * 2.4.1
+    
+* Node version
+  * v7.10.0
 
 * System dependencies
-    * Imagemagick
-    * Graphviz
-    * Yarn
+  * PostgreSQL
+  * npm
+  * Yarn
+  * Imagemagick
+  * Graphviz
 
-* Setup
-    * `git clone https://github.com/tsukalab/jointhub.git && cd jointhub`
+## Setup
 
-    * Install docker
-        * [Docker for Mac](https://download.docker.com/mac/stable/Docker.dmg)
-        * [Docker for Windows](https://download.docker.com/win/stable/InstallDocker.msi)
+* `git clone https://github.com/tsukalab/jointhub.git && cd jointhub`
 
-    * `$ docker-compose build && docker-compose up -d`
+### macOS or Ubuntu
 
-    * `$ docker-compose exec spring rails db:setup`
+1. Install System dependencies
 
-    * open `http://localhost:3000`
+2. `bundle install --path vendor/bundle -j4`
 
-* How to run the test suite
-    * `$ docker-compose exec rails rspec`
+3. `bundle exec rails db:setup`
+
+4. `bundle exec foreman start -f Procfile.dev`
+
+
+### Docker
+
+1. Install docker
+    - [Docker for Mac](https://download.docker.com/mac/stable/Docker.dmg)
+    - [Docker for Windows](https://download.docker.com/win/stable/InstallDocker.msi)
+
+2. Put `secrets.yml.key` to `config/` dir
+
+3.  `docker-compose build`
+
+4. `docker-compose run --rm spring rails db:setup`
+
+5. `docker-compose exec spring rails db:setup`
+
+6. `docker-compose up -d`
+
+7. open `http://localhost:3000`
+
 
 * Deployment instructions
     * Using CircleCI for deployment.
         * update your `master` branch
-
-
